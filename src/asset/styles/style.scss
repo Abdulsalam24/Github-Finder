@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400&display=swap");
+
+:root {
+  --layout-primary: #616161;
+}
+
+a,
+button {
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: rgb(30, 36, 46);
+  font-family: "Montserrat", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  .users {
+    width: 80%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+
+    .user-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+      background-color: rgb(35, 28, 28);
+      box-shadow: rgba(152, 152, 152, 0.2) 0px 7px 29px 0px;
+      .user-img {
+        img {
+          border-radius: 999px;
+          width: 50px;
+        }
+      }
+      .user-login {
+        h4 {
+          color: white;
+          text-transform: capitalize;
+          padding: 0 0 5px 0;
+          color: rgb(255, 255, 255);
+        }
+        span {
+          color: rgb(207, 207, 207);
+        }
+      }
+    }
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+nav {
+  background-color: var(--layout-primary);
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 15px;
+
+      svg {
+        font-size: 20px;
+      }
+    }
+    .nav-list {
+      a {
+        margin: 0 10px;
+        color: white;
+      }
+      a.active {
+        color: rgb(202, 202, 202);
+        border-bottom: 2px solid rgb(228, 228, 228);
+      }
+    }
+  }
+}
+
+footer {
+  background-color: var(--layout-primary);
+  padding: 30px;
+  h5 {
+    text-align: center;
+    color: white;
+    font-size: 15px;
+  }
+}
