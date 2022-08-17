@@ -1,18 +1,19 @@
 import React from "react";
-import { useContext } from "react";
-import GihubContext from "../context/gihubContext/GithubContext";
+import { Link } from "react-router-dom";
 
-function UserItem({ user: { login, avatar_url , id } }) {
-
-
-  const {viewUser} = useContext(GihubContext)
+function UserItem({ user: { login, avatar_url} }) {
 
   return (
     <div className="user-item">
       <div className="user-img">
         <img src={avatar_url} alt="" />
       </div>
-      <div className="user-login"><h4>{login}</h4> <span onClick={()=>viewUser(id)}>View Profile</span> </div>
+      <div className="user-login">
+        <h4>{login}</h4>
+        <Link to={`/user/${login}`}>
+          View Profile
+        </Link>
+      </div>
     </div>
   );
 }

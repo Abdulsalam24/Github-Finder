@@ -3,7 +3,6 @@
   padding: 0;
   margin: 0;
   font-family: "Montserrat", sans-serif;
-
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400&display=swap");
@@ -20,9 +19,6 @@ input {
   text-decoration: none;
 }
 
-
-
-
 button {
   cursor: pointer;
 }
@@ -32,6 +28,7 @@ body {
 }
 
 img {
+  display: block;
   max-width: 100%;
 }
 
@@ -61,7 +58,6 @@ img {
         }
       }
       .user-login {
-
         h4 {
           color: white;
           text-transform: capitalize;
@@ -71,6 +67,122 @@ img {
         span {
           cursor: pointer;
           color: rgb(207, 207, 207);
+        }
+      }
+    }
+  }
+  .user {
+    padding: 70px 50px 0;
+    margin: 20px auto;
+    line-height: 1.7em;
+    .flex {
+      display: flex;
+    }
+    .user-info {
+      color: white;
+      gap: 40px;
+      .img-div {
+
+        width: 30%;
+        position: relative;
+        .name {
+          position: absolute;
+          bottom: 30px;
+          left: 30px;
+          color: white;
+          z-index: 1;
+          h4 {
+            margin: 10px 0;
+          }
+        }
+        .thumbnail {
+          object-fit: contain;
+
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          background-color: black;
+          opacity: 0.4;
+        }
+      }
+      .text-div {
+        flex-direction: column;
+        gap: 9px;
+        width: 60%;
+
+        a {
+          color: white;
+        }
+        .name {
+          align-items: center;
+          gap: 20px;
+        }
+        .profile {
+          margin: 30px 0 40px;
+          justify-content: space-between;
+          button {
+            padding: 20px;
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+          }
+        }
+        .info {
+          justify-content: space-between;
+          letter-spacing: 2px;
+          p {
+            font-weight: 700;
+          }
+          i {
+            font-size: 300;
+          }
+        }
+      }
+    }
+    .stat {
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 40px 0;
+      padding: 0 50px;
+      color: white;
+      .flex {
+        padding: 40px;
+
+        align-items: center;
+        gap: 12px;
+        svg {
+          font-size: 50px;
+          color: crimson;
+        }
+        .item {
+          font-size: 20px;
+        }
+      }
+    }
+    .repository {
+      background-color: #3640526d;
+      padding: 20px;
+      h2 {
+        color: white;
+      }
+      .repos {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin: 30px 0;
+        .repo {
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          padding: 20px 30px;
+          flex-direction: column;
+          .name{
+            gap: 10px;
+            align-items: center;
+          }
         }
       }
     }
@@ -117,25 +229,26 @@ nav {
 }
 
 .btn {
-  button{
+  button {
     border-radius: 10px;
-  text-align: center;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  width: 100px;
-  color: rgb(255, 255, 255);
-  background-color: #838383;
-  cursor: pointer;
-  &:hover {
-    background-color: #525252;
-    color: rgb(207, 207, 207);
-  }
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    width: 100px;
+    color: rgb(255, 255, 255);
+    background-color: #838383;
+    cursor: pointer;
+    &:hover {
+      background-color: #525252;
+      color: rgb(207, 207, 207);
+    }
   }
 }
 
 .btn.absolute {
-  button{
+  button {
     position: absolute;
     right: 3px;
     top: 3px;
@@ -145,12 +258,29 @@ nav {
 
 .search {
   padding: 20px 0;
+  .error-msg {
+    background-color: rgb(138, 56, 56);
+    color: white;
+    padding: 3px;
+    font-size: 10px;
+    text-align: center;
+    width: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    i {
+      border: 1px solid white;
+      padding: 3px;
+      border-radius: 999px;
+    }
+  }
 
   form {
     margin: 10px 0 20px;
     > div {
       position: relative;
-      width: 30%;
+      width: 70%;
+      max-width: 500px;
 
       input {
         background-color: #383838;
@@ -168,7 +298,6 @@ nav {
   }
 }
 
-
 footer {
   background-color: var(--layout-primary);
   padding: 30px;
@@ -179,15 +308,15 @@ footer {
   }
 }
 
-@media (max-width: 600px) {  
+@media (max-width: 600px) {
   .app {
     .users {
       width: 90%;
       margin: 20px auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 20px;
-  
+
       .user-item {
         display: flex;
         align-items: center;
@@ -202,7 +331,6 @@ footer {
           }
         }
         .user-login {
-  
           h4 {
             color: white;
             text-transform: capitalize;
@@ -217,29 +345,28 @@ footer {
       }
     }
   }
-  
+
   .container {
     width: 90%;
     max-width: 1400px;
     margin: auto;
   }
-  
+
   nav {
     background-color: var(--layout-primary);
-  
     .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 20px 0;
-  
+
       .logo {
         display: flex;
         align-items: center;
         gap: 10px;
         color: white;
         font-size: 15px;
-  
+
         svg {
           font-size: 20px;
         }
@@ -256,17 +383,15 @@ footer {
       }
     }
   }
-  
-  
+
   .search {
     padding: 20px 0;
-  
     form {
       margin: 10px 0 20px;
       > div {
         position: relative;
         width: 100%;
-  
+
         input {
           padding: 20px 20px 20px 20px;
           border-radius: 10px;
@@ -275,8 +400,7 @@ footer {
       }
     }
   }
-  
-  
+
   footer {
     padding: 20px;
     h5 {

@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import UserItem from "../components/UserItem";
 import UserSearch from "../components/UserSearch";
-import GihubContext from "../context/gihubContext/GithubContext";
+import GihubContext from "../context/githubContext/GithubContext";
 
 function Main() {
   const { users, loading } = useContext(GihubContext);
@@ -17,6 +17,7 @@ function Main() {
           <UserItem user={user} key={user.id} />
         ))}
       </div>
+      
     </div>
   );
 }
