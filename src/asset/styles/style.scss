@@ -82,7 +82,6 @@ img {
       color: white;
       gap: 40px;
       .img-div {
-
         width: 30%;
         position: relative;
         .name {
@@ -179,14 +178,57 @@ img {
           box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
           padding: 20px 30px;
           flex-direction: column;
-          .name{
+          color: white;
+          a {
+            color: white;
+          }
+          .name {
             gap: 10px;
             align-items: center;
+          }
+          .repo-stat {
+            > p {
+              margin: 5px 0;
+            }
+            div {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              > p {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+              }
+            }
           }
         }
       }
     }
   }
+}
+
+.icon {
+  padding: 3px 7px;
+  font-size: 15px;
+  line-height: 15px;
+  border-radius: 12px;
+  svg {
+    color: rgb(255, 255, 255);
+  }
+}
+
+.red {
+  background-color: rgba(220, 20, 60, 0.67);
+}
+.blue {
+  background-color: rgba(14, 142, 197, 0.628);
+}
+.green {
+  background-color: rgba(27, 164, 27, 0.55);
+}
+.yellow {
+  background-color: rgba(177, 177, 33, 0.628);
 }
 
 .container {
