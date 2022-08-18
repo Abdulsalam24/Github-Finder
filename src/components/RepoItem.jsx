@@ -16,45 +16,42 @@ function RepoItem({ repo }) {
 
   return (
     <div className="repo flex">
-      <div className="name flex">
-        <FaLink />
-        <a href={html_url}>
+      <a href={html_url} target="_blank" rel="noreferrer">
+        <div className="name flex">
+          <FaLink />
           <h3>{name}</h3>
-        </a>
-      </div>
-      <div className="repo-stat">
-        <p>{description}</p>
-        <div>
-          <p>
-            <Icon color="red">
-              <FaEye />{watchers_count}
-            </Icon>
-          </p>
-          <p>
-            <Icon color="blue">
-              <FaInfo />
-            {open_issues}
-
-            </Icon>
-          </p>
-          <p>
-            <Icon color="green">
-              <FaStar />
-            {stargazers_count}
-
-            </Icon>
-
-          </p>
-
-          <p>
-            <Icon color="yellow">
-              <FaUtensils />
-              {forks}
-            </Icon>
-            
-          </p>
         </div>
-      </div>
+        <div className="repo-stat">
+          <p>{description}</p>
+          <div>
+            <p>
+              <Icon color="red">
+                <FaEye />
+                {watchers_count}
+              </Icon>
+            </p>
+            <p>
+              <Icon color="blue">
+                <FaInfo />
+                {open_issues}
+              </Icon>
+            </p>
+            <p>
+              <Icon color="green">
+                <FaStar />
+                {stargazers_count}
+              </Icon>
+            </p>
+
+            <p>
+              <Icon color="yellow">
+                <FaUtensils />
+                {forks}
+              </Icon>
+            </p>
+          </div>
+        </div>
+      </a>
     </div>
   );
 }

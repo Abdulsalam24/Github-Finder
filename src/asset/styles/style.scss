@@ -8,7 +8,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400&display=swap");
 
 :root {
-  --layout-primary: #616161;
+  --layout-primary: #5b767859;
+  --bright: #ffffff;
 }
 
 a,
@@ -32,6 +33,40 @@ img {
   max-width: 100%;
 }
 
+nav {
+  background-color: var(--layout-primary);
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--bright);
+      font-size: 15px;
+
+      svg {
+        font-size: 20px;
+      }
+    }
+    .nav-list {
+      a {
+        margin: 0 10px;
+        color: var(--bright);
+      }
+      a.active {
+        color: rgb(202, 202, 202);
+        border-bottom: 2px solid rgb(228, 228, 228);
+      }
+    }
+  }
+}
+
+
 .app {
   display: flex;
   flex-direction: column;
@@ -48,9 +83,8 @@ img {
       display: flex;
       align-items: center;
       gap: 20px;
-      padding: 10px;
-      background-color: rgb(35, 28, 28);
-      box-shadow: rgba(152, 152, 152, 0.2) 0px 7px 29px 0px;
+      padding: 20px;
+      box-shadow: rgba(66, 66, 66, 0.2) 0px 7px 29px 0px;
       .user-img {
         img {
           border-radius: 999px;
@@ -59,7 +93,7 @@ img {
       }
       .user-login {
         h4 {
-          color: white;
+          color: var(--bright);
           text-transform: capitalize;
           padding: 0 0 5px 0;
           color: rgb(255, 255, 255);
@@ -67,6 +101,9 @@ img {
         span {
           cursor: pointer;
           color: rgb(207, 207, 207);
+        }
+        a {
+          color: rgb(223, 223, 223);
         }
       }
     }
@@ -79,19 +116,19 @@ img {
       display: flex;
     }
     .user-info {
-      color: white;
+      color: var(--bright);
       gap: 40px;
       .img-div {
         width: 30%;
         position: relative;
         .name {
           position: absolute;
-          bottom: 30px;
+          bottom: 20px;
           left: 30px;
-          color: white;
+          color: var(--bright);
           z-index: 1;
           h4 {
-            margin: 10px 0;
+            margin: 5px 0;
           }
         }
         .thumbnail {
@@ -112,7 +149,7 @@ img {
         width: 60%;
 
         a {
-          color: white;
+          color: var(--bright);
         }
         .name {
           align-items: center;
@@ -122,17 +159,24 @@ img {
           margin: 30px 0 40px;
           justify-content: space-between;
           button {
+            transition: 0.5s;
             padding: 20px;
-            background-color: white;
+            border: 1px solid var(--bright);
             color: black;
+            background-color: transparent;
             border-radius: 10px;
             font-size: 15px;
             font-weight: 600;
+            &:hover {
+              background-color: rgb(80, 80, 80);
+            }
           }
         }
         .info {
           justify-content: space-between;
           letter-spacing: 2px;
+          padding: 20px 10px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
           p {
             font-weight: 700;
           }
@@ -148,7 +192,7 @@ img {
       flex-wrap: wrap;
       margin: 40px 0;
       padding: 0 50px;
-      color: white;
+      color: var(--bright);
       .flex {
         padding: 40px;
 
@@ -164,10 +208,14 @@ img {
       }
     }
     .repository {
-      background-color: #3640526d;
-      padding: 20px;
+      background-color: #222732;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
       h2 {
-        color: white;
+        color: var(--bright);
       }
       .repos {
         display: flex;
@@ -175,12 +223,15 @@ img {
         gap: 30px;
         margin: 30px 0;
         .repo {
-          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          box-shadow: rgba(46, 46, 46, 0.2) 0px 7px 29px 0px;
           padding: 20px 30px;
           flex-direction: column;
-          color: white;
+          color: var(--bright);
+          &:hover {
+            box-shadow: rgba(65, 65, 65, 0.2) 0px 7px 29px 0px;
+          }
           a {
-            color: white;
+            color: var(--bright);
           }
           .name {
             gap: 10px;
@@ -204,6 +255,17 @@ img {
           }
         }
       }
+    }
+  }
+
+  .about {
+    max-width: 600px;
+    line-height: 30px;
+    margin: auto;
+    text-align: center;
+    color: var(--bright);
+    h1 {
+      margin: 20px 0;
     }
   }
 }
@@ -235,40 +297,15 @@ img {
   width: 90%;
   max-width: 1400px;
   margin: auto;
-}
-
-nav {
-  background-color: var(--layout-primary);
-
-  .container {
+  .spinner {
+    width: 100px;
+    margin: auto;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px 0;
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: white;
-      font-size: 15px;
-
-      svg {
-        font-size: 20px;
-      }
-    }
-    .nav-list {
-      a {
-        margin: 0 10px;
-        color: white;
-      }
-      a.active {
-        color: rgb(202, 202, 202);
-        border-bottom: 2px solid rgb(228, 228, 228);
-      }
-    }
   }
 }
+
 
 .btn {
   button {
@@ -277,10 +314,11 @@ nav {
     align-items: center;
     display: flex;
     justify-content: center;
-    padding: 10px 0;
+    padding: 15px 0;
     width: 100px;
     color: rgb(255, 255, 255);
     background-color: #838383;
+    font-size: 15px;
     cursor: pointer;
     &:hover {
       background-color: #525252;
@@ -302,7 +340,8 @@ nav {
   padding: 20px 0;
   .error-msg {
     background-color: rgb(138, 56, 56);
-    color: white;
+    color: var(--bright);
+    border-radius: 15px;
     padding: 3px;
     font-size: 10px;
     text-align: center;
@@ -311,7 +350,7 @@ nav {
     justify-content: space-evenly;
     align-items: center;
     i {
-      border: 1px solid white;
+      border: 1px solid var(--bright);
       padding: 3px;
       border-radius: 999px;
     }
@@ -330,7 +369,7 @@ nav {
         width: 100%;
         padding: 20px 110px 20px 20px;
         border-radius: 12px;
-        color: white;
+        color: var(--bright);
         font-size: 18px;
         &::placeholder {
           color: rgb(187, 187, 187);
@@ -345,7 +384,7 @@ footer {
   padding: 30px;
   h5 {
     text-align: center;
-    color: white;
+    color: var(--bright);
     font-size: 15px;
   }
 }
@@ -374,7 +413,7 @@ footer {
         }
         .user-login {
           h4 {
-            color: white;
+            color: var(--bright);
             text-transform: capitalize;
             padding: 0 0 5px 0;
             color: rgb(255, 255, 255);
@@ -384,6 +423,64 @@ footer {
             color: rgb(207, 207, 207);
           }
         }
+      }
+    }
+    .user {
+      padding: 20px 10px 0;
+      margin: 20px auto;
+      .flex {
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .user-info {
+        gap: 50px;
+        .img-div {
+          width: 100%;
+          .name {
+            bottom: 10px;
+            h4 {
+              margin: 2px 0;
+            }
+          }
+        }
+        .text-div {
+          width: 100%;
+          .profile {
+            margin: 20px 0;
+            button {
+              font-size: 13px;
+            }
+          }
+          .info {
+            gap: 20px;
+          }
+        }
+      }
+      .stat {
+        margin: 40px 0;
+        padding: 0 30px;
+        .flex {
+          padding: 20px;
+        }
+      }
+      .repository {
+        padding: 40px 20px;
+
+        .repos {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 30px;
+          .repo {
+            padding: 20px 10px;
+          }
+        }
+      }
+    }
+
+    .about {
+      width: 80%;
+      h1 {
+        margin: 20px 0;
       }
     }
   }
@@ -406,7 +503,7 @@ footer {
         display: flex;
         align-items: center;
         gap: 10px;
-        color: white;
+        color: var(--bright);
         font-size: 15px;
 
         svg {
@@ -416,7 +513,7 @@ footer {
       .nav-list {
         a {
           margin: 0 10px;
-          color: white;
+          color: var(--bright);
         }
         a.active {
           color: rgb(202, 202, 202);

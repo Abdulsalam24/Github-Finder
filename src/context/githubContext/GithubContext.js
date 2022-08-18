@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+
 import githubReducer from "./GithubReducer";
 
 const GihubContext = createContext()
@@ -10,7 +11,7 @@ export const GithubProvider = ({ children }) => {
     const initialState = {
         users: [],
         user: {},
-        repos : [],
+        repos: [],
         loading: false
     }
 
@@ -58,7 +59,12 @@ export const GithubProvider = ({ children }) => {
     const getRepos = async (login) => {
         setLoading()
 
-        const response = await fetch(`${GITHUB_API}/users/${login}/repos`, {
+        const params = new URLSearchParams({
+            sort: "created",
+            per_page : 10
+        })
+
+        const response = await fetch(`${GITHUB_API}/users/${login}/repos?${params}`, {
             Headers: {
                 Authorization: `token ${TOKEN}`
             }
@@ -77,7 +83,7 @@ export const GithubProvider = ({ children }) => {
     }
 
     return (
-        <GihubContext.Provider value={{ searchUser, clearUser, getUser,getRepos, users: state.users, user: state.user, loading: state.loading,repos : state.repos }}>
+        <GihubContext.Provider value={{ searchUser, clearUser, getUser, getRepos, users: state.users, user: state.user, loading: state.loading, repos: state.repos }}>
             {children}
         </GihubContext.Provider>
     )

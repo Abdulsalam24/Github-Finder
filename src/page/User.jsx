@@ -3,18 +3,18 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import GihubContext from "../context/githubContext/GithubContext";
 
-import { FaUsers, FaUser} from "react-icons/fa";
+import { FaUsers, FaUser } from "react-icons/fa";
 import { RiGitRepositoryFill } from "react-icons/ri";
 import { BsFillFileCodeFill } from "react-icons/bs";
 import RepoItem from "../components/RepoItem";
 
 function User() {
-  const { user, getUser , getRepos , repos } = useContext(GihubContext);
+  const { user, getUser, getRepos, repos } = useContext(GihubContext);
   const params = useParams();
 
   useEffect(() => {
     getUser(params.login);
-    getRepos(params.login)
+    getRepos(params.login);
   }, []);
 
   const {
@@ -30,7 +30,6 @@ function User() {
     html_url,
     followers,
     following,
-    gists_url,
     blog,
     location,
     bio,
@@ -56,33 +55,38 @@ function User() {
           <div className="bio">
             <p>{bio}</p>
           </div>
-          <div className="profile flex">
-            <button>View Github Profile</button>
-            <div className="created">
-              <p>
-                <i>Created</i> <br /> {created_at}
-              </p>
-            </div>
+          <div className="profile">
+            <button>
+              <a href={html_url} target="_blank" rel="noreferrer">
+                View Github Profile
+              </a>
+            </button>
           </div>
           <div className="info flex">
-            <div className="location">
+            {location &&
+              <div className="location">
               <p>
                 <i>Location</i> <br /> {location}
               </p>
             </div>
-            <div className="website">
-              <p>
-                <i>Website</i> <br />
-                <a href={blog} target="_blank" rel="noreferrer">
-                  {blog}
-                </a>
-              </p>
-            </div>
-            <div className="Twitter">
+            }
+
+            {blog && (
+              <div className="website">
+                <p>
+                  <i>Website</i> <br />
+                  <a href={`https://${blog}`} target="_blank" rel="noreferrer">
+                    {blog}
+                  </a>
+                </p>
+              </div>
+            )}
+
+           {twitter_username && <div className="Twitter">
               <p>
                 <i>Twitter</i> <br /> {twitter_username}
               </p>
-            </div>
+            </div>}
           </div>
         </div>
       </div>
@@ -123,11 +127,9 @@ function User() {
       <div className="repository">
         <h2>Latest Repostory</h2>
         <div className="repos">
-          {
-            repos.map((repo) => (
-              <RepoItem key={repo.id} repo={repo}/>
-            ))
-          }
+          {repos.map((repo) => (
+            <RepoItem key={repo.id} repo={repo} />
+          ))}
         </div>
       </div>
     </div>
