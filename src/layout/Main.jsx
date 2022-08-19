@@ -10,7 +10,6 @@ function Main() {
   return (
     <div className="container">
       <UserSearch />
-
       {loading ? (
         <Spinner />
       ) : (

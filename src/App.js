@@ -5,6 +5,7 @@ import Footer from './layout/Footer';
 import Main from './layout/Main';
 import Nav from './layout/Nav';
 import About from './page/About';
+import NotFound from './page/NotFound';
 import User from './page/User';
 
 
@@ -20,6 +21,9 @@ function App() {
               <Route exact path='/' element={<Main />} />
               <Route exact path='/user/:login' element={<User />} />
               <Route exact path='/about' element={<About />} />
+              <Route exact path='/notfound' element={<NotFound />} />
+              <Route exact path='/*' element={<NotFound />} />
+
             </Routes>
             <Footer />
           </div>

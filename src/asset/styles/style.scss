@@ -297,6 +297,7 @@ nav {
   width: 90%;
   max-width: 1400px;
   margin: auto;
+ .img{
   .spinner {
     width: 100px;
     margin: auto;
@@ -304,6 +305,7 @@ nav {
     justify-content: center;
     align-items: center;
   }
+ }
 }
 
 
@@ -334,6 +336,15 @@ nav {
     top: 3px;
     bottom: 3px;
   }
+}
+
+.not-found{
+  max-width: 500px;
+  margin: auto;
+  width: 90%;
+
+  text-align: center;
+  color: white;
 }
 
 .search {
