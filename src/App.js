@@ -23,7 +23,6 @@ function App() {
               <Route exact path='/about' element={<About />} />
               <Route exact path='/notfound' element={<NotFound />} />
               <Route exact path='/*' element={<NotFound />} />
-
             </Routes>
             <Footer />
           </div>

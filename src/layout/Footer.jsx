@@ -1,7 +1,10 @@
+import {FaGithub} from 'react-icons/fa'
+
+
 function Footer() {
   return (
     <footer>
-      <h5>CopyRight 2022 Abdulsalam Mohammed</h5>
+      <h5><FaGithub/> </h5>
     </footer>
   );
 }

@@ -1,5 +1,3 @@
-
-
 const githubReducer = (state, action) => {
     switch (action.type) {
         case "FETCH_USER":
@@ -8,16 +6,13 @@ const githubReducer = (state, action) => {
                 users: action.payload,
                 loading: false
             }
-        case "GET_USER":
+
+            
+        case "GET_USER_AND_REPOS":
             return {
                 ...state,
-                user: action.payload,
-                loading: false
-            }
-        case "GET_REPOS":
-            return {
-                ...state,
-                repos: action.payload,
+                user : action.payload.user,
+                repos: action.payload.repos,
                 loading: false
             }
             
@@ -32,16 +27,12 @@ const githubReducer = (state, action) => {
                 loading: false
             }
 
-
-
-
-
-        case "VIEW_USER":
-            return {
-                ...state,
-                users: action.payload.id === state.users.id ? action.payload : state.users,
-                loading: false
-            }
+        // case "VIEW_USER":
+        //     return {
+        //         ...state,
+        //         users: action.payload.id === state.users.id ? action.payload : state.users,
+        //         loading: false
+        //     }
 
         default:
             return state

@@ -3,12 +3,13 @@
   padding: 0;
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  transition: 0.3s;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400&display=swap");
 
 :root {
-  --layout-primary: #5b767859;
+  --layout-primary: #191d24;
   --bright: #ffffff;
 }
 
@@ -26,6 +27,7 @@ button {
 
 body {
   background-color: rgb(30, 36, 46);
+  height: 100%;
 }
 
 img {
@@ -35,7 +37,12 @@ img {
 
 nav {
   background-color: var(--layout-primary);
-  
+  box-shadow: rgba(74, 74, 74, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px;
+  // box-shadow: rgba(74, 74, 74, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
   .container {
     display: flex;
     align-items: center;
@@ -46,7 +53,7 @@ nav {
       display: flex;
       align-items: center;
       gap: 10px;
-      color: var(--bright);
+      color: #9da6b6;
       font-size: 15px;
 
       svg {
@@ -54,24 +61,37 @@ nav {
       }
     }
     .nav-list {
+      font-size: 14px;
       a {
         margin: 0 10px;
-        color: var(--bright);
+        color: #8793a7;
       }
       a.active {
         color: rgb(202, 202, 202);
-        border-bottom: 2px solid rgb(228, 228, 228);
+        border-bottom: 2px solid #9da6b6;
       }
     }
   }
 }
 
-
 .app {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: space-between;
+  .img-spinner {
+    height: 100%;
+    width: 100vw;
+    background-color: rgba(233, 233, 233, 0.108);
+    svg {
+      transform: translate(0, 30vh);
+      margin: auto !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+  }
   .users {
     width: 100%;
     margin: 30px auto;
@@ -109,17 +129,32 @@ nav {
     }
   }
   .user {
-    padding: 70px 50px 0;
+    padding: 20px 50px 0;
     margin: 20px auto;
     line-height: 1.7em;
+    button {
+      transition: 0.5s;
+      padding: 20px;
+      border: 1px solid var(--bright);
+      color: white;
+      background-color: transparent;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      &:hover {
+        background-color: rgb(80, 80, 80);
+      }
+    }
     .flex {
       display: flex;
     }
     .user-info {
       color: var(--bright);
       gap: 40px;
+      margin: 10px 0;
       .img-div {
         width: 30%;
+
         position: relative;
         .name {
           position: absolute;
@@ -158,19 +193,6 @@ nav {
         .profile {
           margin: 30px 0 40px;
           justify-content: space-between;
-          button {
-            transition: 0.5s;
-            padding: 20px;
-            border: 1px solid var(--bright);
-            color: black;
-            background-color: transparent;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 600;
-            &:hover {
-              background-color: rgb(80, 80, 80);
-            }
-          }
         }
         .info {
           justify-content: space-between;
@@ -297,34 +319,27 @@ nav {
   width: 90%;
   max-width: 1400px;
   margin: auto;
- .img{
-  .spinner {
-    width: 100px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
- }
 }
-
 
 .btn {
   button {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+      rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+      rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
     border-radius: 10px;
     text-align: center;
     align-items: center;
     display: flex;
     justify-content: center;
-    padding: 15px 0;
+    padding: 22px 0;
     width: 100px;
-    color: rgb(255, 255, 255);
-    background-color: #838383;
+    color: var(--bright);
+    background-color: #22252b;
     font-size: 15px;
     cursor: pointer;
     &:hover {
-      background-color: #525252;
-      color: rgb(207, 207, 207);
+      background-color: #333333;
+      color: var(--bright);
     }
   }
 }
@@ -338,19 +353,47 @@ nav {
   }
 }
 
-.not-found{
+.not-found {
   max-width: 500px;
   margin: auto;
   width: 90%;
-
   text-align: center;
   color: white;
+  h1 {
+    font-size: 75px;
+  }
+  h3 {
+    margin: 10px 0;
+    font-size: 28px;
+  }
+  a {
+    button {
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+        rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+        rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+      padding: 20px 70px;
+      margin: 20px 0;
+      border-radius: 14px;
+      font-size: 20px;
+      font-weight: 600;
+      &:hover {
+        background-color: #7b7b7b;
+        color: var(--bright);
+        svg {
+          color: var(--bright);
+        }
+      }
+      svg {
+        margin: 0px 5px -2px 0;
+      }
+    }
+  }
 }
 
 .search {
   padding: 20px 0;
   .error-msg {
-    background-color: rgb(138, 56, 56);
+    background-color: #67686a;
     color: var(--bright);
     border-radius: 15px;
     padding: 3px;
@@ -367,36 +410,55 @@ nav {
     }
   }
 
-  form {
-    margin: 10px 0 20px;
-    > div {
-      position: relative;
-      width: 70%;
-      max-width: 500px;
+  .flex {
+    display: flex;
+    gap: 20px;
+    align-items: center;
 
-      input {
-        background-color: #383838;
-        border: none;
+    form {
+      margin: 10px 0 20px;
+      width: 100%;
+      max-width: 600px;
+      > div {
+        position: relative;
         width: 100%;
-        padding: 20px 110px 20px 20px;
-        border-radius: 12px;
-        color: var(--bright);
-        font-size: 18px;
-        &::placeholder {
-          color: rgb(187, 187, 187);
+        // max-width: 600px;
+
+        input {
+          background-color: #d3d8e1;
+          border: none;
+          width: 100%;
+          padding: 25px 110px 25px 30px;
+          border-radius: 12px;
+          color: var(--bright);
+          font-size: clamp(12px, 3vw, 18px);
+          color: black;
+          &::placeholder {
+            color: #63676c;
+          }
         }
       }
+    }
+    .clear {
+      width: 100%;
     }
   }
 }
 
 footer {
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   background-color: var(--layout-primary);
   padding: 30px;
   h5 {
     text-align: center;
     color: var(--bright);
-    font-size: 15px;
+    svg {
+      font-size: 26px;
+    }
   }
 }
 
@@ -439,6 +501,9 @@ footer {
     .user {
       padding: 20px 10px 0;
       margin: 20px auto;
+      button {
+        font-size: 13px;
+      }
       .flex {
         flex-wrap: wrap;
         gap: 5px;
@@ -458,9 +523,6 @@ footer {
           width: 100%;
           .profile {
             margin: 20px 0;
-            button {
-              font-size: 13px;
-            }
           }
           .info {
             gap: 20px;
@@ -536,16 +598,18 @@ footer {
 
   .search {
     padding: 20px 0;
-    form {
-      margin: 10px 0 20px;
-      > div {
-        position: relative;
-        width: 100%;
+    .flex {
+      flex-wrap: wrap;
+      form {
+        margin: 10px 0 20px;
+        > div {
+          position: relative;
+          width: 100%;
 
-        input {
-          padding: 20px 20px 20px 20px;
-          border-radius: 10px;
-          font-size: 13px;
+          input {
+            padding: 20px 20px 20px 20px;
+            border-radius: 10px;
+          }
         }
       }
     }

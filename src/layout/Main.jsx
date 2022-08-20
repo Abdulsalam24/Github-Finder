@@ -8,18 +8,22 @@ function Main() {
   const { users, loading } = useContext(GihubContext);
 
   return (
-    <div className="container">
-      <UserSearch />
+    <>
       {loading ? (
         <Spinner />
       ) : (
-        <div className="users">
-          {users.map((user) => (
-            <UserItem user={user} key={user.id} />
-          ))}
+        <div className="container">
+          
+          <UserSearch />
+
+          <div className="users">
+            {users.map((user) => (
+              <UserItem user={user} key={user.id} />
+            ))}
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
